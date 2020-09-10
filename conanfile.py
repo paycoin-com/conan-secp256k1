@@ -23,10 +23,36 @@ class Secp256k1Conan(ConanFile):
         autotools = AutoToolsBuildEnvironment(self)
 
         with tools.chdir("secp256k1"):
+            autotools.defines.append("USE_FIELD_INV_NUM")
+            autotools.defines.append("USE_FIELD_5X52")
+            autotools.defines.append("USE_FIELD_5X52_ASM")
+            autotools.defines.append("USE_FIELD_10X26=1")
+            autotools.defines.append("USE_FIELD_INV_BUILTIN=1")
+            autotools.defines.append("USE_SCALAR_INV_BUILTIN=1")
+            autotools.defines.append("USE_SCALAR_8X32=1")
+            # autotools.defines.append("USE_ENDOMORPHISM=1")
+            autotools.defines.append("ENABLE_MODULE_SCHNORR=1")
+
             with tools.environment_append(autotools.vars):
                 self.run("./autogen.sh")
 
-            autotools.configure()
+            autotools.configure(args=[
+                # "--enable-benchmark"
+                # "--enable-coverage"
+                # "--enable-tests"
+                # "--enable-openssl-tests"
+                "--enable-experimental"
+                # "--enable-exhaustive-tests"
+                "--enable-endomorphism"
+                # "--enable-ecmult-static-precomputation"
+                "--enable-module-ecdh"
+                "--enable-module-recovery"
+                # "--enable-external-default-callbacks"
+                # "--with-bignum=auto"
+                # "--with-asm==auto"
+                # "--with-ecmult-window=auto"
+                # "--with-ecmult-gen-precision=auto"
+            ])
             autotools.make()
             autotools.install()
 
