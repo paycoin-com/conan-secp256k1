@@ -6,8 +6,9 @@ class Secp256k1Conan(ConanFile):
     version = "1.0"
     license = "MIT"
     channel = "stable"
-    author = "Erik Aronesty <erik@getvida.io>"
-    url = "https://github.com/earonesty/conan-secp256k1.git"
+    # author = "Erik Aronesty <erik@getvida.io>"
+    author = "Paycoin <hello@paycoin.com>"
+    url = "https://github.com/paycoin-com/conan-secp256k1.git"
     description = "Optimized C library for EC operations on curve secp256k1"
     topics = ("bitcoin", "cryptography", "elliptic curve")
     settings = "os", "compiler", "build_type", "arch"

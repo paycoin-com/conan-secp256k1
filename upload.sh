@@ -2,8 +2,8 @@
 
 ### public urls contain the "conan/" path to indicate the conan api, vs other packages
 
-export CONAN_UPLOAD="https://api.bintray.com/conan/vida/vida-open"
-export CONAN_USERNAME="vida"
+export CONAN_UPLOAD="https://api.bintray.com/conan/paycoin-com/secp256k1"
+export CONAN_USERNAME="paycoin"
 export CONAN_LOGIN_USERNAME=""
 export CONAN_CHANNEL="stable"
 export CONAN_EXTERNAL_GIT_REF=
